@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/cordova-plugin-barcode-scanner.git"
+    "url": "https://github.com/phiasco12/scanner.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/cordova-plugin-barcode-scanner/issues"
+    "url": "https://github.com/phiasco12/scanner/issues"
   },
-  "homepage": "https://github.com/yourusername/cordova-plugin-barcode-scanner",
+  "homepage": "https://github.com/phiasco12/scanner",
   "cordova": {
     "id": "cordova-plugin-barcode-scanner",
     "platforms": [
