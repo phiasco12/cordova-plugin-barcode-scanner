@@ -1,0 +1,36 @@
+{
+  "name": "cordova-plugin-barcode-scanner",
+  "version": "1.0.0",
+  "description": "Cordova Barcode Scanner Plugin",
+  "keywords": [
+    "cordova",
+    "plugin",
+    "barcode",
+    "scanner"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "url": "https://example.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/cordova-plugin-barcode-scanner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/cordova-plugin-barcode-scanner/issues"
+  },
+  "homepage": "https://github.com/yourusername/cordova-plugin-barcode-scanner",
+  "cordova": {
+    "id": "cordova-plugin-barcode-scanner",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {
+    "cordova-android": "^9.0.0",
+    "cordova-ios": "^6.2.0"
+  }
+}
