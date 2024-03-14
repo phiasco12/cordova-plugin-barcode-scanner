@@ -16,5 +16,7 @@
             </feature>
         </config-file>
         <source-file src="src/android/BarcodeScanner.java" target-dir="src/com/example/barcodeScanner" />
+        <framework src="com.google.zxing.integration.android.IntentIntegrator" />
+        <framework src="com.google.zxing.integration.android.IntentResult" />
     </platform>
 </plugin>
