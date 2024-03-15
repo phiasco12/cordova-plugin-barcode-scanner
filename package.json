@@ -16,11 +16,5 @@
     "ZXing"
   ],
   "author": "Your Name",
-  "license": "ISC",
-  "dependencies": {
-    // Example: If you were including a library directly, you'd specify it here
-  },
-  "devDependencies": {
-    // Development dependencies (if any)
-  }
+  "license": "ISC"
 }
