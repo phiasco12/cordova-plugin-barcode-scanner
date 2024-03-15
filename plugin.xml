@@ -5,16 +5,12 @@
         <clobbers target="cordova.plugins.myBarcodeScanner" />
     </js-module>
     <platform name="android">
-           <config-file target="res/xml/config.xml" parent="/*">
+        <config-file target="res/xml/config.xml" parent="/*">
             <feature name="MyBarcodeScanner">
-                <param name="android-package" value="com.example.mybarcodescanner.MyBarcodeScanner"/>
+                <param name="android-package" value="com.example.myBarcodeScanner.MyBarcodeScanner"/>
             </feature>
         </config-file>
-        <source-file src="src/android/MyBarcodeScanner.java" target-dir="src/com/example/mybarcodescanner" />
-
+        <source-file src="src/android/MyBarcodeScanner.java" target-dir="src/com/example/myBarcodeScanner" />
         <framework src="com.google.zxing:core:3.3.0" />
-    <config-file parent="/*" target="app/build.gradle">
-        <gradleFile id="zxing" path="zxing.gradle" />
-    </config-file>
     </platform>
 </plugin>
