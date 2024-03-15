@@ -1,7 +1,9 @@
-var BarcodeScanner = {
-    scan: function(successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "BarcodeScanner", "scan", []);
+var exec = require('cordova/exec');
+
+var myBarcodeScanner = {
+    scanBarcode: function(successCallback, errorCallback) {
+        exec(successCallback, errorCallback, 'MyBarcodeScanner', 'scanBarcode', []);
     }
 };
 
-module.exports = BarcodeScanner;
+module.exports = myBarcodeScanner;
