@@ -9,4 +9,3 @@
         <source-file src="src/android/MyBarcodeScanner.java" target-dir="src/com/example/myBarcodeScanner" />
     </platform>
 </plugin>
-
