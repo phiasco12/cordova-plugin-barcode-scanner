@@ -17,7 +17,6 @@
         <gradleFile id="zxing" path="zxing.gradle" />
     </config-file>
     </platform>
-    <!-- Add iOS platform similarly -->
 </plugin>-->
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="com.example.myBarcodeScanner" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
