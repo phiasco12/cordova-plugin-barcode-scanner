@@ -1,22 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-barcode-scanner" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>Barcode Scanner</name>
-    <description>Cordova Barcode Scanner Plugin</description>
-    <license>MIT</license>
-    <keywords>cordova,plugin,barcode,scanner</keywords>
-    <js-module name="BarcodeScanner" src="www/barcodeScanner.js">
-        <clobbers target="cordova.plugins.barcodeScanner" />
+<plugin id="cordova-plugin-mybarcodescanner" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>MyBarcodeScanner</name>
+    <js-module src="www/myBarcodeScanner.js" name="myBarcodeScanner">
+        <clobbers target="cordova.plugins.myBarcodeScanner" />
     </js-module>
     <platform name="android">
-        <config-file parent="/*" target="res/xml/config.xml">
-            <feature name="BarcodeScanner">
-                <param name="android-package" value="com.example.barcodeScanner.BarcodeScanner" />
-                <param name="onload" value="true" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MyBarcodeScanner">
+                <param name="android-package" value="com.example.mybarcodescanner.MyBarcodeScanner"/>
             </feature>
         </config-file>
-        <source-file src="src/android/BarcodeScanner.java" target-dir="src/com/example/barcodeScanner" />
-        <framework src="com.google.zxing.integration.android.IntentIntegrator" />
-        <framework src="com.google.zxing.integration.android.IntentResult" />
+        <source-file src="src/android/MyBarcodeScanner.java" target-dir="src/com/example/mybarcodescanner" />
     </platform>
+    <!-- Add iOS platform similarly -->
 </plugin>
