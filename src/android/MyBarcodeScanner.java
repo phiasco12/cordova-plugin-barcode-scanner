@@ -38,16 +38,12 @@ public class MyBarcodeScanner extends CordovaPlugin {
         integrator.setOrientationLocked(false);
         
         // Set extra options for better scanning of difficult barcodes
-        integrator.addExtra("TRY_HARDER", true);
-        integrator.addExtra("PRESERVE_ORIENTATION", true);
-        // Enabling the following can help with blurry images
-        integrator.addExtra("ALLOWED_LENGTHS", new int[]{8, 13});
-        integrator.addExtra("ASSUME_CODE_39_CHECK_DIGIT", false);
-        integrator.addExtra("ASSUME_GS1", true);
-        
-        // Additional settings to try when scanning difficult barcodes
-        integrator.addExtra(IntentIntegrator.TRY_HARDER, true);
-        integrator.addExtra("PURE_BARCODE_MODE", true);
+integrator.addExtra("TRY_HARDER", true);
+integrator.addExtra("PRESERVE_ORIENTATION", true);
+// Enabling the following can help with blurry images
+integrator.addExtra("ALLOWED_LENGTHS", new int[]{8, 13});
+integrator.addExtra("ASSUME_CODE_39_CHECK_DIGIT", false);
+integrator.addExtra("ASSUME_GS1", true);
 
         this.cordova.setActivityResultCallback(this);
         integrator.initiateScan();
