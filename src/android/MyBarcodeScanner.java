@@ -29,18 +29,25 @@ public class MyBarcodeScanner extends CordovaPlugin {
         IntentIntegrator integrator = new IntentIntegrator(this.cordova.getActivity());
         // If you have a custom CaptureActivity to handle various conditions
         // integrator.setCaptureActivity(CustomScannerActivity.class); 
+         // integrator.setCaptureActivity(CustomScannerActivity.class); // Uncomment if you have a custom activity
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
         integrator.setPrompt("Scan a barcode");
         integrator.setCameraId(0); // Use the back camera
         integrator.setBeepEnabled(true);
         integrator.setBarcodeImageEnabled(true);
         integrator.setOrientationLocked(false);
+        
+        // Set extra options for better scanning of difficult barcodes
         integrator.addExtra("TRY_HARDER", true);
         integrator.addExtra("PRESERVE_ORIENTATION", true);
-        // Enabling the following can help with blurry images, but might make scanning slower
+        // Enabling the following can help with blurry images
         integrator.addExtra("ALLOWED_LENGTHS", new int[]{8, 13});
         integrator.addExtra("ASSUME_CODE_39_CHECK_DIGIT", false);
         integrator.addExtra("ASSUME_GS1", true);
+        
+        // Additional settings to try when scanning difficult barcodes
+        integrator.addExtra(IntentIntegrator.TRY_HARDER, true);
+        integrator.addExtra("PURE_BARCODE_MODE", true);
 
         this.cordova.setActivityResultCallback(this);
         integrator.initiateScan();
