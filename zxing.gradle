@@ -1,0 +1,4 @@
+// This script adds the necessary ZXing dependency for barcode scanning
+dependencies {
+    implementation 'com.google.zxing:core:3.3.0'
+}
