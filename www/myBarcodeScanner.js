@@ -1,9 +1,5 @@
 var exec = require('cordova/exec');
 
-var myBarcodeScanner = {
-    scanBarcode: function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'MyBarcodeScanner', 'scanBarcode', []);
-    }
+exports.scanBarcode = function(success, error) {
+    exec(success, error, "MyBarcodeScanner", "scanBarcode", []);
 };
-
-module.exports = myBarcodeScanner;
