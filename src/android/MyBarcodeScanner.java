@@ -27,10 +27,23 @@ public class MyBarcodeScanner extends CordovaPlugin {
 
     private void scanBarcode() {
         IntentIntegrator integrator = new IntentIntegrator(this.cordova.getActivity());
-        integrator.setOrientationLocked(false); // Scans in all orientations
-        integrator.setBeepEnabled(true); // Beep after scanning
-        integrator.setBarcodeImageEnabled(true); // Capture image of barcode
-        integrator.initiateScan(); // Start scanning
+        // If you have a custom CaptureActivity to handle various conditions
+        // integrator.setCaptureActivity(CustomScannerActivity.class); 
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+        integrator.setPrompt("Scan a barcode");
+        integrator.setCameraId(0); // Use the back camera
+        integrator.setBeepEnabled(true);
+        integrator.setBarcodeImageEnabled(true);
+        integrator.setOrientationLocked(false);
+        integrator.addExtra("TRY_HARDER", true);
+        integrator.addExtra("PRESERVE_ORIENTATION", true);
+        // Enabling the following can help with blurry images, but might make scanning slower
+        integrator.addExtra("ALLOWED_LENGTHS", new int[]{8, 13});
+        integrator.addExtra("ASSUME_CODE_39_CHECK_DIGIT", false);
+        integrator.addExtra("ASSUME_GS1", true);
+
+        this.cordova.setActivityResultCallback(this);
+        integrator.initiateScan();
     }
 
     @Override
