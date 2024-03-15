@@ -1,36 +1,26 @@
 {
-  "name": "cordova-plugin-barcode-scanner",
+  "name": "cordova-plugin-mybarcodescanner",
   "version": "1.0.0",
-  "description": "Cordova Barcode Scanner Plugin",
-  "keywords": [
-    "cordova",
-    "plugin",
-    "barcode",
-    "scanner"
-  ],
-  "license": "MIT",
-  "author": {
-    "name": "Your Name",
-    "email": "your.email@example.com",
-    "url": "https://example.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/phiasco12/scanner.git"
-  },
-  "bugs": {
-    "url": "https://github.com/phiasco12/scanner/issues"
-  },
-  "homepage": "https://github.com/phiasco12/scanner",
+  "description": "A Cordova plugin for scanning barcodes using ZXing.",
   "cordova": {
-    "id": "cordova-plugin-barcode-scanner",
+    "id": "cordova-plugin-mybarcodescanner",
     "platforms": [
       "android",
       "ios"
     ]
   },
+  "keywords": [
+    "cordova",
+    "barcode",
+    "scanner",
+    "ZXing"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
   "dependencies": {
-    "cordova-android": "^9.0.0",
-    "cordova-ios": "^6.2.0"
+    // Example: If you were including a library directly, you'd specify it here
+  },
+  "devDependencies": {
+    // Development dependencies (if any)
   }
 }
