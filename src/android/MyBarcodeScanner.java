@@ -1,39 +1,44 @@
-package com.example.mybarcodescanner;
+package com.example.myBarcodeScanner;
 
 import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
-import android.content.Intent;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class MyBarcodeScanner extends CordovaPlugin {
+    private CallbackContext callbackContext;
+
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+        this.callbackContext = callbackContext;
+        
         if ("scanBarcode".equals(action)) {
-            this.scanBarcode(callbackContext);
+            this.scanBarcode();
             return true;
         }
         return false;
     }
 
-    private void scanBarcode(CallbackContext callbackContext) {
-        IntentIntegrator integrator = new IntentIntegrator(cordova.getActivity());
-        integrator.setOrientationLocked(false); // Allow scanning in any orientation
-        integrator.setBeepEnabled(false); // Optional beep on scan
-        integrator.setBarcodeImageEnabled(true); // Capture barcode image
-        // Start scan
-        integrator.initiateScan();
+    private void scanBarcode() {
+        IntentIntegrator integrator = new IntentIntegrator(this.cordova.getActivity());
+        integrator.setOrientationLocked(false); // Scans in all orientations
+        integrator.setBeepEnabled(true); // Beep after scanning
+        integrator.setBarcodeImageEnabled(true); // Capture image of barcode
+        integrator.initiateScan(); // Start scanning
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        if (scanResult != null) {
-            String result = scanResult.getContents();
-            this.callbackContext.success(result);
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() == null) {
+                this.callbackContext.error("Cancelled");
+            } else {
+                this.callbackContext.success(result.getContents());
+            }
         } else {
-            super.onActivityResult(requestCode, resultCode, intent);
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 }
