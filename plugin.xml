@@ -11,6 +11,8 @@
             </feature>
         </config-file>
         <source-file src="src/android/MyBarcodeScanner.java" target-dir="src/com/example/mybarcodescanner" />
+        <!-- ZXing library dependency -->
+        <framework src="com.google.zxing:core:3.3.0" custom="true" type="gradleReference" />
     </platform>
     <!-- Add iOS platform similarly -->
 </plugin>
