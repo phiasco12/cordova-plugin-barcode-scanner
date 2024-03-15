@@ -34,16 +34,17 @@ public class MyBarcodeScanner extends CordovaPlugin {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if (result != null) {
-            if (result.getContents() == null) {
-                this.callbackContext.error("Cancelled");
-            } else {
-                this.callbackContext.success(result.getContents());
-            }
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+    if (result != null) {
+        if (result.getContents() == null) {
+            callbackContext.error("Cancelled");
         } else {
-            super.onActivityResult(requestCode, resultCode, data);
+            callbackContext.success(result.getContents());
         }
+    } else {
+        super.onActivityResult(requestCode, resultCode, data);
     }
+}
+
 }
